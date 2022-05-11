@@ -8,14 +8,19 @@
 // which appends "Bar" to any object
 // implementing this trait.
 
-// I AM NOT DONE
-
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 impl AppendBar for String {
     //Add your code here
+    fn append_bar(self) -> String {
+        let mut owned_string: String = self.to_owned();
+        let borrowed_string: &str = "Bar";
+
+        owned_string.push_str(borrowed_string);
+        owned_string
+    }
 }
 
 fn main() {
